@@ -11,16 +11,17 @@ class HomePage extends Base {
     get inputLoginButton () {
         return $('//input[@data-test="login-button"]')
     }
-    
+
+    navigateToPage () {
+        return super.navigateTo('')
+    }
+
     async login (username, password) {
         await this.inputUsername.setValue(username)
         await this.inputPassword.setValue(password)
         await this.inputLoginButton.click()
     }
 
-    navigateToPage () {
-        return super.navigateTo('')
-    }
 }
 
 export default new HomePage()
