@@ -17,6 +17,10 @@ class HomePage extends Base {
         await this.inputPassword.setValue(password)
         await this.inputLoginButton.click()
     }
+
+    navigateToPage () {
+        return super.navigateTo('')
+    }
 }
 
 export default new HomePage()

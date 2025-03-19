@@ -1,7 +1,7 @@
 import { browser } from '@wdio/globals'
 
 export default class Base {
-    navigateTo (url) {
-        return browser.url(`${url}`)
+    navigateTo (endpoint) {
+        return browser.url(`https://www.saucedemo.com/${endpoint}`)
     }
 }
