@@ -35,8 +35,12 @@ class Inventory extends Base {
     async verifyProblemImages () {
         let array = await this.imagesProblem
         // There are always 6 duplicate images. But one or more is expected.
-        // await(array.length).toBe(6)
-        await expect(array.length).toBeGreaterThanOrEqual(1)
+        
+        // await expect(array.length).toBeGreaterThanOrEqual(1)
+        // await expect(array.length).toBeLessThanOrEqual(6)
+
+        // Condense the above into one expect
+        await expect(array.length >= 1 && array.length <= 6).toBe(true)
     }
 
 }
