@@ -18,6 +18,15 @@ class Inventory extends Base {
         // the same incorrect image of a dog being used for every single product.
         return $$('//div[@class="inventory_item_img"]//img[@src="/static/media/sl-404.168b1cce.jpg"]')
     }
+    get buttonAddToCart () {
+        return $('//button[@data-test="add-to-cart-sauce-labs-backpack"]')
+    }
+    get buttonRemoveFromCart () {
+        return $('//button[@data-test="remove-sauce-labs-backpack"]')
+    }
+
+    
+
 
     navigateToPage () {
         return super.navigateTo('inventory')
@@ -44,6 +53,10 @@ class Inventory extends Base {
     async verifyDelay (elapsedTime, expectedTime) {
         // Verify there is a delay after submitting login for performance glitch user
         expect(elapsedTime).toBeGreaterThanOrEqual(expectedTime)
+    }
+
+    async verifyRemoveItemError () {
+
     }
 
 }
