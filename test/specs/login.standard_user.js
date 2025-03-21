@@ -24,9 +24,9 @@ describe('Log out from standard_user', () => {
 
 // Negative Login
 describe('Log in as standard_user with incorrect_password', () => {
-    it('Should fail to log in', async () => {
+    it('Should get No Match Error', async () => {
         await HomePage.navigateToPage()
         await HomePage.login(userName, wrongPassword)
-        await HomePage.verifyErrorLogin()
+        await HomePage.verifyErrorNoMatch()
     })
 })
