@@ -6,7 +6,12 @@ class Inventory extends Base {
     get spanProducts () {
         return $('//span[@data-test="title"][contains(text(),"Products")]')
     }
-
+    get buttonMenu () {
+        return $('//button[contains(text(),"Open Menu")]')
+    }
+    get linkLogout () {
+        return $('//a[@data-test="logout-sidebar-link"]')
+    }
     navigateToPage () {
         return super.navigateTo('inventory')
     }
