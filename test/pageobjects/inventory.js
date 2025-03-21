@@ -12,12 +12,18 @@ class Inventory extends Base {
     get linkLogout () {
         return $('//a[@data-test="logout-sidebar-link"]')
     }
+
     navigateToPage () {
         return super.navigateTo('inventory')
     }
 
     async verifyLoggedIn () {
         await expect(this.spanProducts).toBeExisting()
+    }
+
+    async logOut () {
+        await this.buttonMenu.click()
+        await this.linkLogout.click()
     }
 
 }
