@@ -12,8 +12,11 @@ class HomePage extends Base {
     get inputLoginButton () {
         return $('//input[@data-test="login-button"]')
     }
-    get elementErrorLogin () {
+    get elementErrorNoMatch () {
         return $('//*[@data-test="error"][contains(text(),"Username and password do not match")]')
+    }
+    get elementErrorLockedOut () {
+        return $('//*[@data-test="error"][contains(text(),"Sorry, this user has been locked out")]')
     }
 
     navigateToPage () {
@@ -24,8 +27,12 @@ class HomePage extends Base {
         await expect(this.inputLoginButton).toBeExisting()
     }
 
-    async verifyErrorLogin () {
-        await expect(this.elementErrorLogin).toBeExisting()
+    async verifyErrorNoMatch () {
+        await expect(this.elementErrorNoMatch).toBeExisting()
+    }
+
+    async verifyErrorLockedOut () {
+        await expect(this.elementErrorLockedOut).toBeExisting()
     }
 
     async login (username, password) {
