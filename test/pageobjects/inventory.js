@@ -25,9 +25,6 @@ class Inventory extends Base {
         return $('//button[@data-test="remove-sauce-labs-backpack"]')
     }
 
-    
-
-
     navigateToPage () {
         return super.navigateTo('inventory')
     }
@@ -52,11 +49,14 @@ class Inventory extends Base {
 
     async verifyDelay (elapsedTime, expectedTime) {
         // Verify there is a delay after submitting login for performance glitch user
-        expect(elapsedTime).toBeGreaterThanOrEqual(expectedTime)
+        await expect(elapsedTime).toBeGreaterThanOrEqual(expectedTime)
     }
 
     async verifyRemoveItemError () {
-
+        const logs = await browser.getLogs('browser')
+        const expectedError = 'Uncaught Error: Failed to remove item from cart'
+        const errorLogs = logs.filter(log => log.level === 'SEVERE' && log.message.includes(expectedError))
+        await expect(errorLogs.length).toBeGreaterThan(0)
     }
 
 }
