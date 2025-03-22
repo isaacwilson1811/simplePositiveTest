@@ -7,11 +7,11 @@ const wrongPassword = 'incorrect_password'
 
 // Positive Login
 describe('Log in as problem_user', () => {
-    it('Should log in succesfully, and see the dog image for every product', async () => {
+    it('Should log in succesfully, and see 6 dog images', async () => {
         await HomePage.navigateToPage()
         await HomePage.login(userName, password)
         await Inventory.verifyLoggedIn()
-        await Inventory.verifyProblemImages()
+        await Inventory.verifyProblemImages(6)
     })
 })
 
